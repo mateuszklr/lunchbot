@@ -6,6 +6,7 @@
     },
     "facebook": {
         "appID": "BOT_FB_APP_ID",
-        "secret": "BOT_FB_APP_SECRET"
+        "secret": "BOT_FB_APP_SECRET",
+        "userToken": "BOT_FB_USER_TOKEN"
     }
 }

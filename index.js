@@ -26,15 +26,20 @@ var bot = new LunchBot({
     usesReactionVoting: config.get('slack.usesReactionVoting')
 });
 
-var params = {
+var daily = {
+    chains: [
+        {
+            parser: Parsers.daily,
+            filter: Filters.sameDay
+        }
+    ]
+};
+
+var weekly = {
     chains: [
         {
             parser: Parsers.weeklyMenu,
-            filter: Filters.startOfWeek
-        },
-        {
-            parser: Parsers.basicPrice,
-            filter: Filters.sameDay
+            filter: Filters.isLunch
         }
     ]
 };
@@ -43,42 +48,23 @@ var params = {
 //  Sources
 //
 
-// La Tabla
-const latabla = new FacebookSource('es', 'La Tabla', "827767180609816", params);
+// Sexy Duck
+const sexyduck = new FacebookSource('duck', 'Sexy Duck', "sexyduckvarsavia", weekly);
 
-// KPK
-const kpk = new FacebookSource('scissors', 'Kivi Paber Käärid', 'kivipaberkaarid', params);
+// Pelna Para
+const pelnapara = new FacebookSource('bamboo', 'Pełną Parą', "pelnaparananowo", weekly);
 
-// Apelsini Raudtee
-const apelsin = new FacebookSource('tangerine', 'Apelsini Raudtee', 'apelsiniraudtee', params);
+// La Sirena
+const lasirena = new FacebookSource('taco', 'La Sirena', "873793949400701", daily);
 
-// F-Hoone
-const fhoone = new FacebookSource('house', 'F-Hoone', 'Fhoone', params);
+// Orzo
+const orzo = new FacebookSource('leaves', 'Orzo', "orzopeoplemusicnature", weekly);
 
-// Kukeke, occassionally has an offer posted
-const kukeke = new FacebookSource('rooster', 'Kukeke', 'kukekene', params);
+// Bierhalle
+const bierhalle = new FacebookSource('beer', 'Bierhalle', "BierhalleKoszyki", daily);
 
-// Trühvel, special because only posts once a week (on Mondays)
-const truhvel = new FacebookSource('coffee', 'Trühvel', '1829502837275034', params);
+const services = [sexyduck, pelnapara, lasirena, orzo, bierhalle];
 
-// Kohvik Sõbrad
-const buddies = new FacebookSource('two_men_holding_hands', 'Kohvik Sõbrad', 'kohviksobrad', params);
-
-// Frenchy
-const frenchy = new FacebookSource('fr', 'Frenchy', '593232130762873', params);
-
-// Sesoon
-const sesoon = new FacebookSource('eggplant', 'Kohvik Sesoon', 'KohvikSesoon', params);
-
-const luncherServices = [
-    ['steam_locomotive', 'Perrooni Kohvik', '5795c85ec7e7ff48390001eb'],
-    ['tea', 'Telliskivi Reval Café', '575ea00fc7e7ff483900004b'],
-    ['poultry_leg', 'Telliskivi 15', '5761148ec7e7ff4839000081']
-].map(function(service) {
-    return luncherSource.apply(null, service);
-});
-
-const services = [latabla, kpk, apelsin, fhoone, truhvel, kukeke, buddies, frenchy, sesoon].concat(luncherServices);
 console.log('Starting LunchBot with ' + services.length + ' services');
 
 bot.services = services;
