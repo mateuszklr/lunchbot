@@ -8,6 +8,7 @@ var Filters = require('./lib/filters');
 
 var config = require('config');
 var Promise = require('bluebird');
+var http = require('http');
 
 var token = config.get('slack.api');
 var name = config.get('slack.name');
@@ -19,6 +20,11 @@ process.on('uncaughtException', function(err) {
 process.on('exit', function() {
     console.log('Process exiting');
 });
+
+http.createServer(function (req, res) {
+    res.writeHead(200, {'Content-Type': 'text/plain'});
+    res.end('lunchbot is OK!\n');
+}).listen(process.env.PORT || 8080);
 
 var bot = new LunchBot({
     token: token,
