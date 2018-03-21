@@ -69,7 +69,10 @@ const orzo = new FacebookSource('leaves', 'Orzo', "orzopeoplemusicnature", weekl
 // Bierhalle
 const bierhalle = new FacebookSource('beer', 'Bierhalle', "BierhalleKoszyki", daily);
 
-const services = [sexyduck, pelnapara, lasirena, orzo, bierhalle];
+// Sofra
+const sofra = new FacebookSource('rabbit', 'Sofra', "sofra.warszawa", daily);
+
+const services = [sexyduck, pelnapara, lasirena, orzo, bierhalle, sofra];
 
 console.log('Starting LunchBot with ' + services.length + ' services');
 
