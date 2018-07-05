@@ -75,7 +75,10 @@ const sofra = new FacebookSource('rabbit', 'Sofra', "sofra.warszawa", daily);
 // U Szwejka
 const szwejk = new FacebookSource('poultry_leg', 'U Szwejka', "Szwejk", weekly);
 
-const services = [sexyduck, pelnapara, lasirena, orzo, bierhalle, sofra, szwejk];
+// Na Bałkany
+const nabalkany = new FacebookSource('sunrise_over_mountains', 'Na Bałkany', "restauracja.na.balkany", daily);
+
+const services = [sexyduck, pelnapara, lasirena, orzo, bierhalle, sofra, szwejk, nabalkany];
 
 console.log('Starting LunchBot with ' + services.length + ' services');
 
