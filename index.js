@@ -76,7 +76,7 @@ const sofra = new FacebookSource('rabbit', 'Sofra', "sofra.warszawa", daily);
 const szwejk = new FacebookSource('poultry_leg', 'U Szwejka', "Szwejk", weekly);
 
 // Na Bałkany
-const nabalkany = new FacebookSource('sunrise_over_mountains', 'Na Bałkany', "restauracja.na.balkany", daily);
+const nabalkany = new FacebookSource('sunrise_over_mountains', 'Na Bałkany', "nabalkany", weekly);
 
 const services = [sexyduck, pelnapara, lasirena, orzo, bierhalle, sofra, szwejk, nabalkany];
 
