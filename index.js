@@ -3,6 +3,7 @@
 var LunchBot = require('./lib/lunchbot');
 var FacebookSource = require('./lib/sources/facebook');
 var luncherSource = require('./lib/sources/luncher');
+var LunchmpaSource = require('./lib/sources/lunchmpa');
 var Parsers = require('./lib/parsers');
 var Filters = require('./lib/filters');
 
@@ -78,7 +79,15 @@ const szwejk = new FacebookSource('poultry_leg', 'U Szwejka', "Szwejk", weekly);
 // Na Bałkany
 const nabalkany = new FacebookSource('sunrise_over_mountains', 'Na Bałkany', "nabalkany", weekly);
 
-const services = [sexyduck, pelnapara, lasirena, orzo, bierhalle, sofra, szwejk, nabalkany];
+const sloik = new LunchmpaSource('jar', 'Słoik', 'restauracja_sloik');
+
+const totopho = new LunchmpaSource('ramen', 'To To Pho', 'to_to_pho_widok');
+
+const makaiwoda = new FacebookSource('spaghetti', 'Mąka i Woda', "MakaiWoda", daily);
+
+const latomatina = new FacebookSource('tomato', 'La Tomatina', "178498048891814", daily);
+
+const services = [latomatina, sloik, totopho, makaiwoda];
 
 console.log('Starting LunchBot with ' + services.length + ' services');
 
