@@ -8,7 +8,6 @@ var Parsers = require('./lib/parsers');
 var Filters = require('./lib/filters');
 
 var config = require('config');
-var Promise = require('bluebird');
 var http = require('http');
 
 var token = config.get('slack.api');
@@ -54,31 +53,6 @@ var weekly = {
 //
 //  Sources
 //
-
-// Sexy Duck
-const sexyduck = new FacebookSource('duck', 'Sexy Duck', "sexyduckvarsavia", weekly);
-
-// Pelna Para
-const pelnapara = new FacebookSource('bamboo', 'Pełną Parą', "pelnaparananowo", weekly);
-
-// La Sirena
-const lasirena = new FacebookSource('taco', 'La Sirena', "873793949400701", daily);
-
-// Orzo
-const orzo = new FacebookSource('leaves', 'Orzo', "orzopeoplemusicnature", weekly);
-
-// Bierhalle
-const bierhalle = new FacebookSource('beer', 'Bierhalle', "BierhalleKoszyki", daily);
-
-// Sofra
-const sofra = new FacebookSource('rabbit', 'Sofra', "sofra.warszawa", daily);
-
-// U Szwejka
-const szwejk = new FacebookSource('poultry_leg', 'U Szwejka', "Szwejk", weekly);
-
-// Na Bałkany
-const nabalkany = new FacebookSource('sunrise_over_mountains', 'Na Bałkany', "nabalkany", weekly);
-
 const sloik = new LunchmpaSource('jar', 'Słoik', 'restauracja_sloik');
 
 const totopho = new LunchmpaSource('ramen', 'To To Pho', 'to_to_pho_widok');
@@ -87,7 +61,13 @@ const makaiwoda = new FacebookSource('spaghetti', 'Mąka i Woda', "MakaiWoda", d
 
 const latomatina = new FacebookSource('tomato', 'La Tomatina', "178498048891814", daily);
 
-const services = [latomatina, sloik, totopho, makaiwoda];
+const loft = new FacebookSource('sunflower', 'Loft', "LoftRestauracja", weekly);
+
+const aiolichmielna = new FacebookSource('leaves', 'Aioli', "aiolixchmielna", weekly);
+
+const bordochmielna = new FacebookSource('balloon', 'Bordo', "BistroChmielna", daily);
+
+const services = [latomatina, sloik, loft,  aiolichmielna, bordochmielna, totopho, makaiwoda];
 
 console.log('Starting LunchBot with ' + services.length + ' services');
 
