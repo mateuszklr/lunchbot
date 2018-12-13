@@ -45,7 +45,7 @@ var weekly = {
     chains: [
         {
             parser: Parsers.weeklyMenu,
-            filter: Filters.isLunch
+            filter: Filters.startOfWeek
         }
     ]
 };
@@ -67,7 +67,11 @@ const aiolichmielna = new FacebookSource('leaves', 'Aioli', "aiolixchmielna", we
 
 const bordochmielna = new FacebookSource('balloon', 'Bordo', "BistroChmielna", daily);
 
-const services = [latomatina, sloik, loft,  aiolichmielna, bordochmielna, totopho, makaiwoda];
+const soulkitchen = new FacebookSource('musical_keyboard', 'Soul Kitchen', "SoulKitchenBistro", daily);
+
+const nabalkany = new FacebookSource('sunrise_over_mountains', 'Na Bałkany', "nabalkany", daily);
+
+const services = [soulkitchen, sloik, aiolichmielna, nabalkany, latomatina];
 
 console.log('Starting LunchBot with ' + services.length + ' services');
 
