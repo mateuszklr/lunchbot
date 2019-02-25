@@ -67,13 +67,13 @@ const aiolichmielna = new FacebookSource('leaves', 'Aioli', "aiolixchmielna", we
 
 const bordochmielna = new FacebookSource('balloon', 'Bordo', "BistroChmielna", daily);
 
-const soulkitchen = new FacebookSource('musical_keyboard', 'Soul Kitchen', "SoulKitchenBistro", daily);
+const soulkitchen = new FacebookSource('musical_keyboard', 'Soul Kitchen', "SoulKitchenWarsaw", daily);
 
 const nabalkany = new FacebookSource('sunrise_over_mountains', 'Na Bałkany', "nabalkany", daily);
 
 const pianka = new FacebookSource('cloud', 'Pianka', 'piankaztanka', daily);
 
-const services = [soulkitchen, pianka, sloik, aiolichmielna, nabalkany, latomatina];
+const services = [soulkitchen, pianka, nabalkany, latomatina];
 
 console.log('Starting LunchBot with ' + services.length + ' services');
 
